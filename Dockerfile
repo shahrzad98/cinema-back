@@ -1,5 +1,5 @@
 # ---------- Build stage ----------
-FROM node:24-alpine AS builder
+FROM docker.arvancloud.ir/node:24.13.1-alpine AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # ---------- Production stage ----------
-FROM node:24-alpine AS runner
+FROM docker.arvancloud.ir/node:24.13.1-alpine AS runner
 
 WORKDIR /app
 ENV NODE_ENV=production
