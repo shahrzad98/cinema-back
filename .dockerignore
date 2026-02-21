@@ -1,14 +1,90 @@
+# =========================
+# Dependencies
+# =========================
 node_modules
+.pnpm-store
+.yarn
+.npm
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build outputs / coverage
+# =========================
 dist
 coverage
+.nyc_output
+*.tsbuildinfo
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+
+# =========================
+# VCS
+# =========================
 .git
 .gitignore
-Dockerfile
-docker-compose.yml
-npm-debug.log
-.yarn
-.yarnrc
-.pnpm-store
+.gitattributes
+
+# =========================
+# Editor / OS junk
+# =========================
 .vscode
 .idea
-*.md
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+
+# =========================
+# Tests / docs (not needed to build the runtime image)
+# =========================
+test
+**/*.spec.ts
+**/*.test.ts
+**/__tests__/
+docs
+README.md
+
+# =========================
+# Local tooling caches
+# =========================
+.eslintcache
+.prettier-cache
+.cache
+tmp
+temp
+.history
+
+# =========================
+# Docker / compose files (optional)
+# Keep Dockerfile (do NOT ignore it)
+# =========================
+docker-compose*.yml
+compose*.yml
+
+# =========================
+# App runtime data (usually bind-mounted in prod)
+# If you NEED to ship repo data files in the image, remove "data" below.
+# =========================
+data
+*.sqlite
+*.sqlite3
+*.db
